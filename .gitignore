@@ -2,6 +2,7 @@
 *.d
 *.gba
 *.nds
+*.backup
 font.c
 font.h
 guibg.c
