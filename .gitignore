@@ -1,0 +1,10 @@
+*.o
+*.d
+*.gba
+*.nds
+font.c
+font.h
+guibg.c
+guibg.h
+build/
+.vscode/
