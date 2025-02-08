@@ -18,5 +18,6 @@ The simplest workflow for flashing a game to a bootleg cartridge is like so:
   * Load `GBAFlasher.nds` from your R4 or similar flashcart.
   * Navigate the menu on the bottom screen with the D-pad.
   * Select the ROM you want to flash with the A button.
+  * Confirm you want to flash the ROM with the Start button.
   
 Now, just sit back and wait. This method isn't quite as fast as flashing from a PC. A 4MB ROM flashed in approximately 1 minute, 18 seconds. For a 16MB flash, it took around 5 minutes, 20 seconds. However, if you compare this to [my GBA link flashing software](https://github.com/HonkeyKong/GBAFlashTools), which takes approximately 10 minutes to flash a 4MB ROM file, it's a massive improvement. All in all, I just want to give homebrew developers as many ways to produce their own game cartridges as possible.

@@ -1,13 +1,15 @@
 #ifndef TEXT_HPP
 #define TEXT_HPP
+
 #ifdef __cplusplus
 #include <string>
-#include <cstring>
-
 extern "C" {
 #endif // __cplusplus
+
 #include <font.h>
 #include <stdint.h>
+#include <string.h>
+#include <stdbool.h>
 
 extern uint8_t currentLine;
 
@@ -23,5 +25,4 @@ void RenderLineWithValue(uint8_t screen, const char* text, uint32_t value, uint8
 #ifdef __cplusplus
 }
 #endif // __cplusplus
-
 #endif // TEXT_HPP

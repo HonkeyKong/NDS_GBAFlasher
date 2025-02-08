@@ -5,7 +5,7 @@
 #include <input.h>
 #include <gfx.hpp>
 
-#include <cstdio>
+// #include <cstdio>
 #include <cstdlib>
 #include <cstring>
 
@@ -98,7 +98,6 @@ int main(void) {
                     RenderFileList();
                 }
 
-                // Instead of locking up, just delay input briefly after a selection.
                 scanKeys();
                 while (keysHeld() & KEY_A) {
                     swiWaitForVBlank();

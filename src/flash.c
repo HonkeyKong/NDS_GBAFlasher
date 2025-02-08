@@ -1,4 +1,3 @@
-#include <nds.h>
 #include <text.h>
 #include <flash.h>
 #include <input.h>

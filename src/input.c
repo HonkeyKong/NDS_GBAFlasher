@@ -1,5 +1,6 @@
-#include <nds.h>
 #include <input.h>
+#include <nds/interrupts.h>
+#include <nds/arm9/input.h>
 
 void WaitForA() {
     while (1) {

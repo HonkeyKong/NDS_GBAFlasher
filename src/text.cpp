@@ -1,6 +1,8 @@
-#include <nds.h>
-#include <cstdio>
 #include <text.h>
+#include <cstdio>
+#include <nds/interrupts.h>
+#include <nds/arm9/input.h>
+#include <nds/arm9/video.h>
 
 #define TILE_WIDTH 32
 #define TILE_HEIGHT 21
@@ -110,9 +112,9 @@ bool DisplayROMInfo(const char* filename, uint32_t romSize) {
     RenderLine(0, "TITLE:", 6);
     RenderText(0, romTitle, 10, 6);
     RenderLine(0, "GAME CODE:", 7);
-    RenderText(0, gameCode, 12, 7);
+    RenderText(0, gameCode, 14, 7);
     RenderLine(0, "MAKER CODE:", 8);
-    RenderText(0, makerCode, 13, 8);
+    RenderText(0, makerCode, 15, 8);
 
     char sizeMsg[32];
     snprintf(sizeMsg, sizeof(sizeMsg), "SIZE: %d KB", romSize / 1024);
