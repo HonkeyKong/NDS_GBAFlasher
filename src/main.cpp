@@ -15,11 +15,8 @@ extern uint16_t scrollOffset;
 void infiniteLoop() { while(1); }
 
 int main(void) {
-    irqInit();
-    irqEnable(IRQ_VBLANK);
-
-    sysSetCardOwner(true);
-    sysSetCartOwner(true);
+    ntrcardOpen();
+    gbacartOpen();
 
     setupVideo();
     LoadGraphics();
