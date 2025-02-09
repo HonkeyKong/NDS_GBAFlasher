@@ -1,4 +1,4 @@
-#include <gfx.hpp>
+#include <gfx.h>
 #include <gfx/font.h>
 #include <gfx/guibg.h>
 #include <nds/arm9/video.h>

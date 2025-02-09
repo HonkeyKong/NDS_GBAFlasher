@@ -1,10 +1,10 @@
-#ifndef TEXT_HPP
-#define TEXT_HPP
+#ifndef TEXT_H
+#define TEXT_H
 
-#ifdef __cplusplus
-#include <string>
-extern "C" {
-#endif // __cplusplus
+// #ifdef __cplusplus
+// #include <string>
+// extern "C" {
+// #endif // __cplusplus
 
 #include <stdint.h>
 #include <string.h>
@@ -21,7 +21,7 @@ void RenderLine(uint8_t screen, const char* text, uint8_t line);
 void RenderText(uint8_t screen, const char* text, uint8_t x, uint8_t y);
 void RenderLineWithValue(uint8_t screen, const char* text, uint32_t value, uint8_t line);
 
-#ifdef __cplusplus
-}
-#endif // __cplusplus
-#endif // TEXT_HPP
+// #ifdef __cplusplus
+// }
+// #endif // __cplusplus
+#endif // TEXT_H

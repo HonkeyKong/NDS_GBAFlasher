@@ -69,13 +69,13 @@ set( SOURCE_FILES
 ${BG_SRC}
 ${SB_ASM}
 ${FONT_SRC}
-src/fat.cpp
-src/gfx.cpp
+src/gfx.c
+src/text.c
+src/main.c
+src/audio.c
+src/files.c
 src/flash.c
-src/input.c
-src/text.cpp
-src/main.cpp
-src/audio.cpp )
+src/input.c )
             
 add_executable( GBAFlasher ${SOURCE_FILES} )
 add_dependencies( GBAFlasher generate_gfx )

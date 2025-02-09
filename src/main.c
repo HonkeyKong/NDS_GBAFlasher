@@ -1,15 +1,15 @@
+#include <gfx.h>
 #include <nds.h> 
 #include <text.h>
 #include <audio.h>
-#include <cstring>
-#include <cstdlib>
-#include <fat.hpp>
+#include <files.h>
 #include <flash.h>
 #include <input.h>
-#include <gfx.hpp>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <maxmod9.h>
 #include <sfx/soundbank.h>
-
 
 extern uint32_t cartSize;
 extern uint16_t scrollOffset;
