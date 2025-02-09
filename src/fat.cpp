@@ -22,12 +22,10 @@ void ListFiles() {
     struct dirent* entry;
     fileCount = 0;
 
-    // Ensure `currentPath` is valid
     if (currentPath[0] == '\0') {
         strcpy(currentPath, "/"); // Reset to root if empty
     }
 
-    // Open the directory
     dir = opendir(currentPath);
     if (!dir) {
         ClearText(1);
@@ -35,11 +33,9 @@ void ListFiles() {
         return;
     }
 
-    // Clear previous file list
     memset(fileNames, 0, sizeof(fileNames));
     memset(isDirectory, 0, sizeof(isDirectory));
 
-    // Read directory contents
     while ((entry = readdir(dir)) != NULL && fileCount < MAX_FILES) {
         if (entry->d_type == DT_DIR) {  // Folders
             snprintf(fileNames[fileCount], MAX_FILENAME_LENGTH, "(%s)", entry->d_name);

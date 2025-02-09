@@ -1,6 +1,6 @@
-#include <font.h>
-#include <guibg.h>
 #include <gfx.hpp>
+#include <gfx/font.h>
+#include <gfx/guibg.h>
 #include <nds/arm9/video.h>
 #include <nds/arm9/background.h>
 

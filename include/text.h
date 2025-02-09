@@ -6,7 +6,6 @@
 extern "C" {
 #endif // __cplusplus
 
-#include <font.h>
 #include <stdint.h>
 #include <string.h>
 #include <stdbool.h>

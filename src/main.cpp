@@ -1,13 +1,15 @@
 #include <nds.h> 
 #include <text.h>
+#include <audio.h>
+#include <cstring>
+#include <cstdlib>
 #include <fat.hpp>
 #include <flash.h>
 #include <input.h>
 #include <gfx.hpp>
+#include <maxmod9.h>
+#include <sfx/soundbank.h>
 
-// #include <cstdio>
-#include <cstdlib>
-#include <cstring>
 
 extern uint32_t cartSize;
 extern uint16_t scrollOffset;
@@ -26,6 +28,8 @@ int main(void) {
 
     RenderLine(0, "GBA Flasher by HonkeyKong", 3);
     RenderLine(0, "Initializing...", 4);
+
+    initSound();
 
     if (!initFAT()) {
         RenderText(0, "FAT init failed!", 3, 5);
@@ -70,6 +74,7 @@ int main(void) {
                 if (selectedIndex >= scrollOffset + MAX_VISIBLE_FILES) {
                     scrollOffset++;
                 }
+                PlaySound(SFX_CLICK);
                 RenderFileList();
             }
         }
@@ -82,11 +87,13 @@ int main(void) {
                 if (selectedIndex < scrollOffset) {
                     scrollOffset--;
                 }
+                PlaySound(SFX_CLICK);
                 RenderFileList();
             }
         }
 
         if (keys & KEY_A) {
+            PlaySound(SFX_SELECT);
             if (isDirectory[selectedIndex]) {
                 ChangeDirectory(fileNames[selectedIndex]);  
             } else {
@@ -97,16 +104,16 @@ int main(void) {
                     ListFiles();
                     RenderFileList();
                 }
-
                 scanKeys();
                 while (keysHeld() & KEY_A) {
                     swiWaitForVBlank();
-                    scanKeys();  // This ensures we actually update the key state
+                    scanKeys(); 
                 }
             }
         }
 
         if (keys & KEY_B) {
+            PlaySound(SFX_CANCEL);
             ChangeDirectory("..");
         }
 

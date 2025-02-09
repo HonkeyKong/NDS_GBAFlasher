@@ -1,5 +1,6 @@
-#include <text.h>
 #include <cstdio>
+#include <text.h>
+#include <gfx/font.h>
 #include <nds/interrupts.h>
 #include <nds/arm9/input.h>
 #include <nds/arm9/video.h>

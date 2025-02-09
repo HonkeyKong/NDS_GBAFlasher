@@ -1,9 +1,11 @@
 #include <text.h>
+#include <audio.h>
 #include <flash.h>
 #include <input.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sfx/soundbank.h>
 
 #define FLASH_BASE 0x08000000 // Start of cartridge ROM space
 #define _FLASH_WRITE(pa, pd) { *((uint16_t*)FLASH_BASE + ((pa) / 2)) = (pd); __asm("nop"); }
@@ -140,12 +142,14 @@ bool LoadAndFlashROM(const char* filename) {
     // Show ROM Info and confirm flashing
     if (!DisplayROMInfo(filename, romSize)) {
         fclose(file);
+        PlaySound(SFX_CANCEL);
         return false; // User canceled
     }
 
     if (romSize > cartSize) {
         fclose(file);
         RenderLine(0, "ROM TOO BIG FOR CART!", 17);
+        PlaySound(SFX_FAIL);
         return false;
     }
 
@@ -156,6 +160,7 @@ bool LoadAndFlashROM(const char* filename) {
     if (!buffer) {
         fclose(file);
         RenderLine(0, "MEMORY ALLOCATION FAILED!", 20);
+        PlaySound(SFX_FAIL);
         return false;
     }
 
@@ -195,6 +200,7 @@ bool LoadAndFlashROM(const char* filename) {
     }
 
     RenderLine(0, "FLASH COMPLETE!", 21);
+    PlaySound(SFX_SUCCESS);
 
     free(buffer);
     fclose(file);
