@@ -9,3 +9,5 @@ guibg.c
 guibg.h
 build/
 .vscode/
+res/src/gfx/*
+res/src/sfx/*

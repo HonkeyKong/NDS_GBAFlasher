@@ -18,6 +18,8 @@ set(NDS_ICON "${CMAKE_SOURCE_DIR}/res/gfx/gbaflash.bmp")
 # Directories where resource files are located
 set(WAV_DIR "${CMAKE_SOURCE_DIR}/res/sfx")
 set(GFX_DIR "${CMAKE_SOURCE_DIR}/res/gfx")
+file(GLOB WAV_FILES "${WAV_DIR}/*.wav")
+
 set(BG_PNG "${GFX_DIR}/bg/guibg.png")
 set(FONT_PNG "${GFX_DIR}/font/font.png")
 set(BG_SRC "${CMAKE_SOURCE_DIR}/res/src/gfx/guibg.c")
@@ -28,21 +30,16 @@ add_custom_command(
     COMMAND grit ${FONT_PNG} -gt -gB4 -pn16 -ftc -o${FONT_SRC}
     DEPENDS ${FONT_PNG}
     COMMENT "Converting font..."
-    VERBATIM
-)
+    VERBATIM )
 
 add_custom_command(
     OUTPUT ${BG_SRC}
     COMMAND grit ${BG_PNG} -gt -gB4 -mRtf -pn16 -ftc -o${BG_SRC}
     DEPENDS ${BG_PNG}
     COMMENT "Converting background..."
-    VERBATIM
-)
+    VERBATIM )
 
 add_custom_target(generate_gfx DEPENDS ${BG_SRC} ${FONT_SRC})
-
-# Find all .wav files in the directory
-file(GLOB WAV_FILES "${WAV_DIR}/*.wav")
 
 set(SFX_HEADER "${CMAKE_SOURCE_DIR}/res/src/sfx/soundbank.h")
 set(SFX_BIN "${CMAKE_SOURCE_DIR}/res/src/sfx/soundbank.bin")
@@ -55,8 +52,7 @@ add_custom_command(
 
     DEPENDS ${WAV_FILES}
     COMMENT "Generating MaxMod soundbank..."
-    VERBATIM
-)
+    VERBATIM )
 
 add_custom_target(generate_soundbank DEPENDS ${SFX_BIN} ${SFX_HEADER})
 
@@ -65,8 +61,7 @@ add_custom_command(
     COMMAND bin2s -H ${SB_HEADER} ${SFX_BIN} > ${SB_ASM}
     DEPENDS ${SFX_BIN}
     COMMENT "Generating Soundbank header..."
-    VERBATIM
-)
+    VERBATIM )
 
 add_custom_target(generate_sb_header DEPENDS ${SB_HEADER} ${SB_ASM})
                 

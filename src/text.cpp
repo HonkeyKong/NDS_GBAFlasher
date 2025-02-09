@@ -7,9 +7,6 @@
 
 #define TILE_WIDTH 32
 #define TILE_HEIGHT 21
-#define CHAR_WIDTH 8
-#define CHAR_HEIGHT 8
-#define PALETTE_INDEX 1
 
 // VRAM base pointers for BG0
 extern u16* bg0MapTop;
@@ -43,6 +40,7 @@ void RenderLine(uint8_t screen, const char *text, uint8_t line) {
         RenderText(screen, text, 3, line);
     } else {
         ClearText(screen);
+        currentLine = 3;
         RenderText(screen, text, 3, currentLine++);
     }
 }
@@ -107,7 +105,7 @@ bool DisplayROMInfo(const char* filename, uint32_t romSize) {
 
     // Clear top screen and display ROM info
     ClearText(0);
-    RenderLine(0, "ROM INFORMATION!", 3);
+    RenderLine(0, "ROM INFORMATION", 3);
     RenderLine(0, "===============", 4);
 
     RenderLine(0, "TITLE:", 6);

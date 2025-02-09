@@ -40,7 +40,6 @@ bool QueryCFI() {
     } else if (Q == 'R' && R == 'Q' && Y == 'Z') {
         bitSwapped = true;
     } else {
-        // RenderLine(0, "CFI QUERY FAILED!", currentLine++);
         return false;
     }
 
